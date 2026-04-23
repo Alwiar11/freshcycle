@@ -23,7 +23,7 @@ class InventoryFilterChips extends StatelessWidget {
         separatorBuilder: (_, _) => SizedBox(width: 8.w),
         itemBuilder: (_, index) {
           final bool isActive = selectedIndex == index;
-          return GestureDetector(
+          return InkWell(
             onTap: () => onSelected(index),
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 16.w),

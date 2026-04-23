@@ -12,7 +12,7 @@ class RegisterFooter extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text('Sudah punya akun? ', style: theme.textTheme.bodyMedium),
-        GestureDetector(
+        InkWell(
           onTap: () {
             context.go('/login');
           }, // TODO: navigate to login

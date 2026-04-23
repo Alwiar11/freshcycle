@@ -37,7 +37,7 @@ class InventoryHeader extends StatelessWidget {
   }
 
   Widget _buildProfileIcon(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () => context.push('/setting'),
       child: Container(
         width: 38.w,

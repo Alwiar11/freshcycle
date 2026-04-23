@@ -108,7 +108,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
                   ),
                   Gap(12.h),
                   const InventoryAddButton(),
-                  Gap(20.h),
+                  Gap(80.h),
                 ],
               ),
             ),

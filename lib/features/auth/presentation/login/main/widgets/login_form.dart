@@ -76,7 +76,7 @@ class _LoginFormState extends State<LoginForm> {
             },
           ),
           SizedBox(height: 12.h),
-          GestureDetector(
+          InkWell(
             onTap: () {}, // TODO: navigate to forgot password
             child: Text(
               'Lupa password?',

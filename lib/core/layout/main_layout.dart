@@ -73,7 +73,7 @@ class MainLayout extends StatelessWidget {
                 final isActive = navigationShell.currentIndex == index;
                 final item = items[index];
 
-                return GestureDetector(
+                return InkWell(
                   onTap: () => navigationShell.goBranch(
                     index,
                     initialLocation: index == navigationShell.currentIndex,

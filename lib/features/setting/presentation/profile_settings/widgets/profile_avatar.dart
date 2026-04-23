@@ -51,7 +51,7 @@ class ProfileAvatar extends StatelessWidget {
           Positioned(
             bottom: 0,
             right: 0,
-            child: GestureDetector(
+            child: InkWell(
               onTap: () {}, // TODO: pick image
               child: Container(
                 width: 30.w,

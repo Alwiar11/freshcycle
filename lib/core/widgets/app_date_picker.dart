@@ -41,7 +41,7 @@ class AppDatePicker extends StatelessWidget {
           ),
         ),
         Gap(8.h),
-        GestureDetector(
+        InkWell(
           onTap: disabled ? null : onTap,
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),

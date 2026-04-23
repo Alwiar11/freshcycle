@@ -34,7 +34,7 @@ class InventoryItemCard extends StatelessWidget {
         ? AppColors.warning
         : Theme.of(context).colorScheme.error;
 
-    return GestureDetector(
+    return InkWell(
       onTap: () => InventoryDetail.show(context, item),
       child: Container(
         margin: EdgeInsets.only(bottom: 14.h),
