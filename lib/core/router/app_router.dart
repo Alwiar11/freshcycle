@@ -1,0 +1,87 @@
+import 'package:flutter/material.dart';
+import 'package:freshcycle/features/inventory/domain/models/inventory_item.dart';
+import 'package:freshcycle/features/inventory/presentation/add/inventory_add_screen.dart';
+import 'package:freshcycle/features/inventory/presentation/edit/inventory_edit_screen.dart';
+import 'package:freshcycle/features/setting/presentation/main/setting_screen.dart';
+import 'package:freshcycle/features/setting/presentation/password_security.dart/password_security_screen.dart';
+import 'package:freshcycle/features/setting/presentation/profile_settings/profile_setting_screen.dart';
+import 'package:go_router/go_router.dart';
+import 'package:freshcycle/core/layout/main_layout.dart';
+import 'package:freshcycle/features/auth/presentation/login/main/login_screen.dart';
+import 'package:freshcycle/features/auth/presentation/register/main/register_screen.dart';
+import 'package:freshcycle/features/inventory/presentation/main/inventory_screen.dart';
+import 'package:freshcycle/features/onboarding/presentation/main/onboarding_screen.dart';
+import 'package:freshcycle/features/price_estimator/presentation/price_estimator_screen.dart';
+import 'package:freshcycle/features/recipe_ai/presentation/recipe_ai_screen.dart';
+
+final _rootNavigatorKey = GlobalKey<NavigatorState>();
+
+final appRouter = GoRouter(
+  navigatorKey: _rootNavigatorKey,
+  initialLocation: '/inventory',
+  routes: [
+    GoRoute(
+      path: '/onboarding',
+      builder: (context, _) => const OnboardingScreen(),
+    ),
+    GoRoute(path: '/login', builder: (context, _) => const LoginScreen()),
+    GoRoute(path: '/register', builder: (context, _) => const RegisterScreen()),
+    GoRoute(
+      path: '/setting',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (context, _) => const SettingScreen(),
+    ),
+    GoRoute(
+      path: '/inventory/edit',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (context, state) {
+        final item = state.extra as InventoryItem;
+        return InventoryEditScreen(item: item);
+      },
+    ),
+    GoRoute(
+      path: '/inventory/add',
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (context, _) => const InventoryAddScreen(),
+    ),
+    GoRoute(
+      path: '/setting/profile',
+      builder: (context, _) => const ProfileSettingScreen(),
+    ),
+    GoRoute(
+      path: '/setting/password-security',
+      builder: (context, _) => const PasswordSecurityScreen(),
+    ),
+    StatefulShellRoute.indexedStack(
+      builder: (context, state, navigationShell) {
+        return MainLayout(navigationShell: navigationShell);
+      },
+      branches: [
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/inventory',
+              builder: (context, _) => const InventoryScreen(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/recipe-ai',
+              builder: (context, _) => const RecipeAiScreen(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/price-estimator',
+              builder: (context, _) => const PriceEstimatorScreen(),
+            ),
+          ],
+        ),
+      ],
+    ),
+  ],
+);
