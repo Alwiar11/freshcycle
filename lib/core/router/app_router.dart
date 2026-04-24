@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:freshcycle/features/cooking/presentation/cooking_session_screen.dart';
+import 'package:freshcycle/features/cooking/presentation/cooking_summary_screen.dart';
 import 'package:freshcycle/features/inventory/domain/models/inventory_item.dart';
 import 'package:freshcycle/features/inventory/presentation/add/inventory_add_screen.dart';
 import 'package:freshcycle/features/inventory/presentation/edit/inventory_edit_screen.dart';
@@ -20,7 +22,7 @@ final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
 final appRouter = GoRouter(
   navigatorKey: _rootNavigatorKey,
-  initialLocation: '/recipe-ai',
+  initialLocation: '/inventory',
   routes: [
     GoRoute(
       path: '/onboarding',
@@ -61,6 +63,19 @@ final appRouter = GoRouter(
         final recipe = state.extra as RecipeModel;
         return RecipeDetailScreen(recipe: recipe);
       },
+    ),
+    GoRoute(
+      path: '/cooking-session',
+      builder: (context, _) => const CookingSessionScreen(),
+    ),
+    GoRoute(
+      path: '/cooking-summary',
+      builder: (context, _) => const CookingSummaryScreen(
+        recipeTitle: '',
+        recipeEmoji: '',
+        adjustedQty: {},
+        steps: [],
+      ),
     ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {

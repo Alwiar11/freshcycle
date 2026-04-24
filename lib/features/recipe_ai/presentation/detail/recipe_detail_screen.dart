@@ -8,6 +8,7 @@ import 'package:freshcycle/features/recipe_ai/presentation/detail/widgets/recipe
 import 'package:freshcycle/features/recipe_ai/presentation/detail/widgets/recipe_section_tile.dart';
 import 'package:freshcycle/features/recipe_ai/presentation/detail/widgets/recipe_steps_section.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class RecipeDetailScreen extends StatelessWidget {
   final RecipeModel recipe;
@@ -77,7 +78,7 @@ class RecipeDetailScreen extends StatelessWidget {
             child: AppPrimaryButton(
               label: 'Buat Resep Ini',
               icon: Icons.restaurant_rounded,
-              onPressed: () {},
+              onPressed: () => context.push('/cooking-session'),
             ),
           ),
         ],

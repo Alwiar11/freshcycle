@@ -10,7 +10,6 @@ import 'package:freshcycle/features/recipe_ai/presentation/main/widgets/recipe_a
 import 'package:freshcycle/features/recipe_ai/presentation/main/widgets/recipe_ai_hint_text.dart';
 import 'package:freshcycle/features/recipe_ai/presentation/main/widgets/recipe_ai_priority_toggle.dart';
 import 'package:freshcycle/features/recipe_ai/presentation/main/widgets/recipe_ai_results.dart';
-import 'package:freshcycle/features/recipe_ai/presentation/main/widgets/recipe_ai_serving_selector.dart';
 import 'package:freshcycle/features/recipe_ai/providers/recipe_ai_provider.dart';
 import 'package:gap/gap.dart';
 
@@ -23,7 +22,6 @@ class RecipeAiScreen extends ConsumerStatefulWidget {
 
 class _RecipeAiScreenState extends ConsumerState<RecipeAiScreen> {
   RecipePriority _selectedPriority = RecipePriority.expiring;
-  int _servings = 2;
 
   final List<RecipeAiExpiringItem> _expiringItems = const [
     RecipeAiExpiringItem(name: 'Ayam Fillet', label: 'Besok', urgent: true),
@@ -119,12 +117,7 @@ class _RecipeAiScreenState extends ConsumerState<RecipeAiScreen> {
               ),
             ),
             SliverToBoxAdapter(child: Gap(12.h)),
-            SliverToBoxAdapter(
-              child: RecipeAiServingSelector(
-                servings: _servings,
-                onChanged: (value) => setState(() => _servings = value),
-              ),
-            ),
+
             SliverToBoxAdapter(child: Gap(16.h)),
             const SliverToBoxAdapter(child: RecipeAiGenerateButton()),
             SliverToBoxAdapter(
