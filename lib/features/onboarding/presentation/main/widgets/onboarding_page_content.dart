@@ -105,6 +105,9 @@ class _OnboardingPageContentState extends State<OnboardingPageContent>
       curve: const Interval(0.5, 1.0, curve: Curves.easeOut),
     );
 
+    final cs = Theme.of(context).colorScheme;
+    final tt = Theme.of(context).textTheme;
+
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 24.w),
       child: Column(
@@ -122,9 +125,7 @@ class _OnboardingPageContentState extends State<OnboardingPageContent>
               child: Text(
                 widget.data.title,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
-                ),
+                style: tt.headlineLarge?.copyWith(color: cs.onSurface),
               ),
             ),
           ),
@@ -139,9 +140,7 @@ class _OnboardingPageContentState extends State<OnboardingPageContent>
               child: Text(
                 widget.data.subtitle,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                ),
+                style: tt.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
               ),
             ),
           ),

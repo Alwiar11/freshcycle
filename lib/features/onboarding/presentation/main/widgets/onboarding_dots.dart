@@ -15,6 +15,7 @@ class OnboardingDots extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(count, (i) {
@@ -28,9 +29,7 @@ class OnboardingDots extends StatelessWidget {
           decoration: BoxDecoration(
             color: active
                 ? activeColor
-                : Theme.of(
-                    context,
-                  ).colorScheme.outlineVariant.withValues(alpha: 0.5),
+                : cs.outlineVariant.withValues(alpha: 0.5),
             borderRadius: BorderRadius.circular(20.r),
           ),
         );

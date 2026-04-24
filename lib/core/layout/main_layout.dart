@@ -31,6 +31,7 @@ class MainLayout extends StatelessWidget {
       (icon: Icons.receipt_rounded, label: 'Resep AI'),
       (icon: Icons.price_check_rounded, label: 'Harga'),
     ];
+    final cs = Theme.of(context).colorScheme;
 
     return Padding(
       padding: EdgeInsets.fromLTRB(
@@ -46,15 +47,9 @@ class MainLayout extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
             decoration: BoxDecoration(
-              color: Theme.of(
-                context,
-              ).colorScheme.surfaceContainer.withValues(alpha: 0.2),
+              color: cs.surfaceContainer.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(24),
-              border: Border.all(
-                color: Theme.of(
-                  context,
-                ).colorScheme.outline.withValues(alpha: 0.4),
-              ),
+              border: Border.all(color: cs.outline.withValues(alpha: 0.4)),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withValues(alpha: 0.1),
@@ -84,12 +79,7 @@ class MainLayout extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       gradient: isActive
-                          ? LinearGradient(
-                              colors: [
-                                Theme.of(context).colorScheme.primary,
-                                Theme.of(context).colorScheme.secondary,
-                              ],
-                            )
+                          ? LinearGradient(colors: [cs.primary, cs.secondary])
                           : null,
                       borderRadius: BorderRadius.circular(100),
                     ),
@@ -104,9 +94,7 @@ class MainLayout extends StatelessWidget {
                             size: 20,
                             color: isActive
                                 ? Colors.white
-                                : Theme.of(
-                                    context,
-                                  ).colorScheme.onSurfaceVariant,
+                                : cs.onSurfaceVariant,
                           ),
                         ),
                         AnimatedSize(

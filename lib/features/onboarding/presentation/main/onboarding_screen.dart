@@ -87,9 +87,11 @@ class _OnboardingScreenState extends State<OnboardingScreen>
   @override
   Widget build(BuildContext context) {
     final page = pages[_currentPage];
+    final cs = Theme.of(context).colorScheme;
+    final tt = Theme.of(context).textTheme;
 
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: cs.surface,
       body: SafeArea(
         child: Column(
           children: [
@@ -100,10 +102,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                 padding: EdgeInsets.only(right: 20.w, top: 12.h),
                 child: TextButton(
                   onPressed: () => context.go('/login'),
-                  child: Text(
-                    'Lewati',
-                    style: Theme.of(context).textTheme.labelMedium,
-                  ),
+                  child: Text('Lewati', style: tt.labelMedium),
                 ),
               ),
             ),
@@ -166,12 +165,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                                   child: ElevatedButton(
                                     onPressed: _prevPage,
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: Theme.of(
-                                        context,
-                                      ).colorScheme.surfaceContainer,
-                                      foregroundColor: Theme.of(
-                                        context,
-                                      ).colorScheme.onSurface,
+                                      backgroundColor: cs.surfaceContainer,
+                                      foregroundColor: cs.onSurface,
                                       elevation: 0,
                                       padding: EdgeInsets.zero,
                                       shape: RoundedRectangleBorder(

@@ -14,6 +14,7 @@ import 'package:freshcycle/features/auth/presentation/register/main/register_scr
 import 'package:freshcycle/features/inventory/presentation/main/inventory_screen.dart';
 import 'package:freshcycle/features/onboarding/presentation/main/onboarding_screen.dart';
 import 'package:freshcycle/features/price_estimator/presentation/price_estimator_screen.dart';
+import 'package:freshcycle/features/auth/presentation/profile_setup/profile_setup_screen.dart';
 import 'package:freshcycle/features/recipe_ai/presentation/main/recipe_ai_screen.dart';
 import 'package:freshcycle/features/recipe_ai/presentation/detail/recipe_detail_screen.dart';
 import 'package:freshcycle/features/recipe_ai/domain/models/recipe_model.dart';
@@ -22,7 +23,7 @@ final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
 final appRouter = GoRouter(
   navigatorKey: _rootNavigatorKey,
-  initialLocation: '/inventory',
+  initialLocation: '/profile-setup',
   routes: [
     GoRoute(
       path: '/onboarding',
@@ -30,6 +31,10 @@ final appRouter = GoRouter(
     ),
     GoRoute(path: '/login', builder: (context, _) => const LoginScreen()),
     GoRoute(path: '/register', builder: (context, _) => const RegisterScreen()),
+    GoRoute(
+      path: '/profile-setup',
+      builder: (context, _) => const ProfileSetupScreen(),
+    ),
     GoRoute(
       path: '/setting',
       parentNavigatorKey: _rootNavigatorKey,
@@ -76,6 +81,10 @@ final appRouter = GoRouter(
         adjustedQty: {},
         steps: [],
       ),
+    ),
+    GoRoute(
+      path: '/profile-setup',
+      builder: (context, _) => const ProfileSetupScreen(),
     ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {

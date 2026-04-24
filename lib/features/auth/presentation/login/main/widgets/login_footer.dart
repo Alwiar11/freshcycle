@@ -6,21 +6,19 @@ class LoginFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
+    final cs = Theme.of(context).colorScheme;
+    final tt = Theme.of(context).textTheme;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('Belum punya akun? ', style: theme.textTheme.bodyMedium),
+        Text('Belum punya akun? ', style: tt.bodyMedium),
         InkWell(
           onTap: () {
             context.go('/register');
           }, // TODO: navigate to register
           child: Text(
             'Daftar sekarang',
-            style: theme.textTheme.labelMedium?.copyWith(
-              color: theme.colorScheme.primary,
-            ),
+            style: tt.labelMedium?.copyWith(color: cs.primary),
           ),
         ),
       ],

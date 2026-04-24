@@ -15,6 +15,7 @@ class OnboardingNavButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tt = Theme.of(context).textTheme;
     return SizedBox(
       width: double.infinity,
       height: 56.h,
@@ -35,9 +36,7 @@ class OnboardingNavButton extends StatelessWidget {
             child: Text(
               isLast ? 'Mulai Sekarang' : 'Lanjut',
               key: ValueKey(isLast),
-              style: Theme.of(
-                context,
-              ).textTheme.labelLarge?.copyWith(color: Colors.white),
+              style: tt.labelLarge?.copyWith(color: Colors.white),
             ),
           ),
         ),

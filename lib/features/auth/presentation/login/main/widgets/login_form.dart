@@ -32,8 +32,8 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
+    final cs = Theme.of(context).colorScheme;
+    final tt = Theme.of(context).textTheme;
     return Form(
       key: _formKey,
       child: Column(
@@ -82,9 +82,7 @@ class _LoginFormState extends State<LoginForm> {
             onTap: () {}, // TODO: navigate to forgot password
             child: Text(
               'Lupa password?',
-              style: theme.textTheme.labelMedium?.copyWith(
-                color: theme.colorScheme.primary,
-              ),
+              style: tt.labelMedium?.copyWith(color: cs.primary),
             ),
           ),
           SizedBox(height: 32.h),

@@ -6,18 +6,17 @@ class RegisterHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final cs = Theme.of(context).colorScheme;
+    final tt = Theme.of(context).textTheme;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Buat Akun Baru ✨', style: theme.textTheme.headlineMedium),
+        Text('Buat Akun Baru ✨', style: tt.headlineMedium),
         SizedBox(height: 8.h),
         Text(
           'Daftar dan mulai kelola inventori kamu',
-          style: theme.textTheme.bodyMedium?.copyWith(
-            color: Theme.of(context).colorScheme.onSurfaceVariant,
-          ),
+          style: tt.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
         ),
       ],
     );

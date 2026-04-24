@@ -6,18 +6,17 @@ class LoginHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final cs = Theme.of(context).colorScheme;
+    final tt = Theme.of(context).textTheme;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Selamat Datang 👋', style: theme.textTheme.headlineMedium),
+        Text('Selamat Datang 👋', style: tt.headlineMedium),
         SizedBox(height: 8.h),
         Text(
           'Masuk ke akun FreshCycle kamu',
-          style: theme.textTheme.bodyMedium?.copyWith(
-            color: Theme.of(context).colorScheme.onSurfaceVariant,
-          ),
+          style: tt.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
         ),
       ],
     );

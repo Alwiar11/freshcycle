@@ -24,15 +24,14 @@ class AddDateSection extends StatelessWidget {
           date: entryDate,
           onTap: () {},
           disabled: true,
-          format: 'dd/MM/yyyy',
         ),
         Gap(12.h),
         AppDatePicker(
           label: 'Tanggal Kedaluwarsa',
           date: expiryDate,
           onTap: onPickExpiry,
-          error: expiryDate == null,
-          format: 'dd/MM/yyyy',
+          validator: (date) =>
+              date == null ? 'Pilih tanggal kedaluwarsa' : null,
         ),
       ],
     );
