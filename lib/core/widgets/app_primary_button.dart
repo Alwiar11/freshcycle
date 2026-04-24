@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freshcycle/core/theme/app_colors.dart';
 
 class AppPrimaryButton extends StatelessWidget {
   const AppPrimaryButton({
@@ -41,9 +40,14 @@ class AppPrimaryButton extends StatelessWidget {
                     Theme.of(
                       context,
                     ).colorScheme.primary.withValues(alpha: 0.6),
-                    AppColors.secondary.withValues(alpha: 0.6),
+                    Theme.of(
+                      context,
+                    ).colorScheme.secondary.withValues(alpha: 0.6),
                   ]
-                : [Theme.of(context).colorScheme.primary, AppColors.secondary],
+                : [
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.secondary,
+                  ],
           ),
           borderRadius: BorderRadius.circular(effectiveRadius),
           boxShadow: isLoading

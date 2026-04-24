@@ -72,10 +72,14 @@ class RecipeAiRecipeCard extends StatelessWidget {
                             vertical: 4.h,
                           ),
                           decoration: BoxDecoration(
-                            color: AppColors.danger.withValues(alpha: 0.08),
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.error.withValues(alpha: 0.08),
                             borderRadius: BorderRadius.circular(8.r),
                             border: Border.all(
-                              color: AppColors.danger.withValues(alpha: 0.2),
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.error.withValues(alpha: 0.2),
                               width: 0.5,
                             ),
                           ),
@@ -83,7 +87,7 @@ class RecipeAiRecipeCard extends StatelessWidget {
                             ing,
                             style: Theme.of(context).textTheme.labelSmall
                                 ?.copyWith(
-                                  color: AppColors.danger,
+                                  color: Theme.of(context).colorScheme.error,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),

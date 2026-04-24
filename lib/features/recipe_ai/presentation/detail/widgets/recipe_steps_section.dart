@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freshcycle/core/theme/app_colors.dart';
 import 'package:gap/gap.dart';
 
 class RecipeStepsSection extends StatelessWidget {
@@ -68,7 +67,7 @@ class _RecipeStepItem extends StatelessWidget {
             gradient: LinearGradient(
               colors: [
                 Theme.of(context).colorScheme.primary,
-                AppColors.secondary,
+                Theme.of(context).colorScheme.secondary,
               ],
             ),
             shape: BoxShape.circle,
@@ -105,7 +104,9 @@ class _RecipeStepItem extends StatelessWidget {
                     Theme.of(
                       context,
                     ).colorScheme.primary.withValues(alpha: 0.4),
-                    AppColors.secondary.withValues(alpha: 0.1),
+                    Theme.of(
+                      context,
+                    ).colorScheme.secondary.withValues(alpha: 0.1),
                   ],
                 ),
                 borderRadius: BorderRadius.circular(1.r),

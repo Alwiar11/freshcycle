@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freshcycle/core/theme/app_colors.dart';
 import 'package:freshcycle/features/recipe_ai/domain/models/recipe_model.dart';
 import 'package:freshcycle/features/recipe_ai/presentation/detail/widgets/recipe_ingredient_chip.dart';
 import 'package:gap/gap.dart';
@@ -16,7 +15,11 @@ class RecipeIngredientsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (recipe.expiringIngredients.isNotEmpty) ...[
-          _buildSubLabel(context, 'Gunakan segera', AppColors.danger),
+          _buildSubLabel(
+            context,
+            'Gunakan segera',
+            Theme.of(context).colorScheme.error,
+          ),
           Gap(8.h),
           _buildChips(recipe.expiringIngredients, isUrgent: true),
           Gap(16.h),

@@ -1,7 +1,5 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:freshcycle/core/theme/app_colors.dart';
 import 'package:go_router/go_router.dart';
 
 class MainLayout extends StatelessWidget {
@@ -89,7 +87,7 @@ class MainLayout extends StatelessWidget {
                           ? LinearGradient(
                               colors: [
                                 Theme.of(context).colorScheme.primary,
-                                AppColors.secondary,
+                                Theme.of(context).colorScheme.secondary,
                               ],
                             )
                           : null,

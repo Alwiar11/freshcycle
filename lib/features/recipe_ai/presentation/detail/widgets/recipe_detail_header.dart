@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freshcycle/core/theme/app_colors.dart';
 import 'package:freshcycle/features/recipe_ai/domain/models/recipe_model.dart';
 import 'package:go_router/go_router.dart';
 
@@ -25,8 +24,8 @@ class RecipeDetailHeader extends StatelessWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            AppColors.primary.withValues(alpha: 0.25),
-            AppColors.primary.withValues(alpha: 0.05),
+            Theme.of(context).colorScheme.primary.withValues(alpha: 0.25),
+            Theme.of(context).colorScheme.primary.withValues(alpha: 0.05),
           ],
         ),
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(36.r)),
@@ -37,13 +36,17 @@ class RecipeDetailHeader extends StatelessWidget {
             top: -20.h,
             right: -30.w,
             size: 180.w,
-            color: AppColors.primary.withValues(alpha: 0.08),
+            color: Theme.of(
+              context,
+            ).colorScheme.primary.withValues(alpha: 0.08),
           ),
           _buildDecorativeCircle(
             bottom: 30.h,
             left: -20.w,
             size: 120.w,
-            color: AppColors.tertiary.withValues(alpha: 0.06),
+            color: Theme.of(
+              context,
+            ).colorScheme.tertiary.withValues(alpha: 0.06),
           ),
           Center(
             child: Hero(

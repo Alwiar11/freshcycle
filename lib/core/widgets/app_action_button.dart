@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freshcycle/core/theme/app_colors.dart';
 
 class AppActionButton extends StatelessWidget {
   const AppActionButton({
@@ -127,7 +126,7 @@ class AppActionButton extends StatelessWidget {
           gradient: LinearGradient(
             colors: [
               Theme.of(context).colorScheme.primary,
-              AppColors.secondary,
+              Theme.of(context).colorScheme.secondary,
             ],
           ),
           borderRadius: BorderRadius.circular(effectiveRadius),

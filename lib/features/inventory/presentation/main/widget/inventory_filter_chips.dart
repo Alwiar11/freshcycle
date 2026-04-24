@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freshcycle/core/theme/app_colors.dart';
 
 class InventoryFilterChips extends StatelessWidget {
   final int selectedIndex;
@@ -31,7 +30,7 @@ class InventoryFilterChips extends StatelessWidget {
                   ? LinearGradient(
                       colors: [
                         Theme.of(context).colorScheme.primary,
-                        AppColors.secondary,
+                        Theme.of(context).colorScheme.secondary,
                       ],
                     )
                   : null,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freshcycle/core/theme/app_colors.dart';
 import 'package:gap/gap.dart';
 
 class RecipeIngredientChip extends StatelessWidget {
@@ -15,7 +14,9 @@ class RecipeIngredientChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isUrgent ? AppColors.danger : AppColors.success;
+    final color = isUrgent
+        ? Theme.of(context).colorScheme.error
+        : Theme.of(context).colorScheme.primary;
 
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
@@ -38,7 +39,7 @@ class RecipeIngredientChip extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               fontWeight: isUrgent ? FontWeight.w700 : FontWeight.w500,
               color: isUrgent
-                  ? AppColors.danger
+                  ? Theme.of(context).colorScheme.error
                   : Theme.of(context).colorScheme.onSurface,
             ),
           ),

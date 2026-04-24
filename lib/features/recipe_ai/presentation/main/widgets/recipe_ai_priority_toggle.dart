@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freshcycle/core/theme/app_colors.dart';
 import 'package:freshcycle/features/recipe_ai/domain/enums/recipe_priority.dart';
 import 'package:gap/gap.dart';
 
@@ -73,7 +72,7 @@ class _PriorityChip extends StatelessWidget {
             ? LinearGradient(
                 colors: [
                   Theme.of(context).colorScheme.primary,
-                  AppColors.secondary,
+                  Theme.of(context).colorScheme.secondary,
                 ],
               )
             : null,
