@@ -30,6 +30,7 @@ class DetailActions extends StatelessWidget {
         Expanded(
           flex: 3,
           child: AppActionButton(
+            useGradient: true,
             label: 'Ubah',
             icon: Icons.edit_outlined,
             foregroundColor: Theme.of(context).colorScheme.onPrimary,

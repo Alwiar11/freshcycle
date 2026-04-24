@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:freshcycle/core/theme/app_colors.dart';
 import 'package:go_router/go_router.dart';
 
 class MainLayout extends StatelessWidget {
@@ -14,10 +15,7 @@ class MainLayout extends StatelessWidget {
       extendBody: true,
       body: Stack(
         children: [
-          // Content
           navigationShell,
-
-          // Floating Navbar
           Positioned(
             left: 0,
             right: 0,
@@ -78,6 +76,7 @@ class MainLayout extends StatelessWidget {
                     index,
                     initialLocation: index == navigationShell.currentIndex,
                   ),
+                  borderRadius: BorderRadius.circular(100),
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 300),
                     curve: Curves.easeInOut,
@@ -86,9 +85,14 @@ class MainLayout extends StatelessWidget {
                       vertical: 8,
                     ),
                     decoration: BoxDecoration(
-                      color: isActive
-                          ? Theme.of(context).colorScheme.primary
-                          : Colors.transparent,
+                      gradient: isActive
+                          ? LinearGradient(
+                              colors: [
+                                Theme.of(context).colorScheme.primary,
+                                AppColors.secondary,
+                              ],
+                            )
+                          : null,
                       borderRadius: BorderRadius.circular(100),
                     ),
                     child: Row(
@@ -115,7 +119,7 @@ class MainLayout extends StatelessWidget {
                                   children: [
                                     const SizedBox(width: 6),
                                     AnimatedOpacity(
-                                      opacity: isActive ? 1.0 : 0.0,
+                                      opacity: 1.0,
                                       duration: const Duration(
                                         milliseconds: 200,
                                       ),

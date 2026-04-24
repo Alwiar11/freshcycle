@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freshcycle/core/theme/app_colors.dart';
 import 'package:freshcycle/features/recipe_ai/domain/models/recipe_model.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class RecipeAiRecipeCard extends StatelessWidget {
   final RecipeModel recipe;
@@ -63,43 +64,41 @@ class RecipeAiRecipeCard extends StatelessWidget {
                 Wrap(
                   spacing: 6.w,
                   runSpacing: 4.h,
-                  children:
-                      recipe.expiringIngredients
-                          .map(
-                            (ing) => Container(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 10.w,
-                                vertical: 4.h,
-                              ),
-                              decoration: BoxDecoration(
-                                color: AppColors.danger.withValues(alpha: 0.08),
-                                borderRadius: BorderRadius.circular(8.r),
-                                border: Border.all(
-                                  color: AppColors.danger.withValues(
-                                    alpha: 0.2,
-                                  ),
-                                  width: 0.5,
-                                ),
-                              ),
-                              child: Text(
-                                ing,
-                                style: Theme.of(
-                                  context,
-                                ).textTheme.labelSmall?.copyWith(
+                  children: recipe.expiringIngredients
+                      .map(
+                        (ing) => Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 10.w,
+                            vertical: 4.h,
+                          ),
+                          decoration: BoxDecoration(
+                            color: AppColors.danger.withValues(alpha: 0.08),
+                            borderRadius: BorderRadius.circular(8.r),
+                            border: Border.all(
+                              color: AppColors.danger.withValues(alpha: 0.2),
+                              width: 0.5,
+                            ),
+                          ),
+                          child: Text(
+                            ing,
+                            style: Theme.of(context).textTheme.labelSmall
+                                ?.copyWith(
                                   color: AppColors.danger,
                                   fontWeight: FontWeight.w500,
                                 ),
-                              ),
-                            ),
-                          )
-                          .toList(),
+                          ),
+                        ),
+                      )
+                      .toList(),
                 ),
                 Gap(16.h),
                 SizedBox(
                   width: double.infinity,
                   height: 44.h,
                   child: OutlinedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.push('/recipe-ai/detail', extra: recipe);
+                    },
                     icon: Icon(
                       Icons.restaurant_rounded,
                       size: 16.r,
@@ -141,16 +140,19 @@ class RecipeAiRecipeCard extends StatelessWidget {
       child: Stack(
         children: [
           Center(
-            child: Text(recipe.emoji, style: TextStyle(fontSize: 52.sp)),
+            child: Hero(
+              tag: 'recipe-emoji-${recipe.id}',
+              child: Material(
+                color: Colors.transparent,
+                child: Text(recipe.emoji, style: TextStyle(fontSize: 52.sp)),
+              ),
+            ),
           ),
           Positioned(
             top: 12.h,
             right: 12.w,
             child: Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: 10.w,
-                vertical: 4.h,
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
               decoration: BoxDecoration(
                 color: Theme.of(
                   context,
@@ -171,9 +173,7 @@ class RecipeAiRecipeCard extends StatelessWidget {
                   Gap(4.w),
                   Text(
                     '${recipe.cookingMinutes}m',
-                    style: Theme.of(
-                      context,
-                    ).textTheme.labelSmall?.copyWith(
+                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
                       color: Theme.of(context).colorScheme.onSurface,
                       fontWeight: FontWeight.w700,
                     ),

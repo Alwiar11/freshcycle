@@ -47,8 +47,9 @@ class _RegisterFormState extends State<RegisterForm> {
             hint: 'Masukkan nama kamu',
             prefixIcon: const Icon(Icons.person_outline),
             validator: (value) {
-              if (value == null || value.isEmpty)
+              if (value == null || value.isEmpty) {
                 return 'Nama tidak boleh kosong';
+              }
               return null;
             },
           ),
@@ -60,8 +61,9 @@ class _RegisterFormState extends State<RegisterForm> {
             keyboardType: TextInputType.emailAddress,
             prefixIcon: const Icon(Icons.email_outlined),
             validator: (value) {
-              if (value == null || value.isEmpty)
+              if (value == null || value.isEmpty) {
                 return 'Email tidak boleh kosong';
+              }
               if (!value.contains('@')) return 'Format email tidak valid';
               return null;
             },
@@ -83,8 +85,9 @@ class _RegisterFormState extends State<RegisterForm> {
                   setState(() => _obscurePassword = !_obscurePassword),
             ),
             validator: (value) {
-              if (value == null || value.isEmpty)
+              if (value == null || value.isEmpty) {
                 return 'Password tidak boleh kosong';
+              }
               if (value.length < 8) return 'Password minimal 8 karakter';
               return null;
             },
@@ -107,10 +110,12 @@ class _RegisterFormState extends State<RegisterForm> {
               ),
             ),
             validator: (value) {
-              if (value == null || value.isEmpty)
+              if (value == null || value.isEmpty) {
                 return 'Konfirmasi password tidak boleh kosong';
-              if (value != _passwordController.text)
+              }
+              if (value != _passwordController.text) {
                 return 'Password tidak cocok';
+              }
               return null;
             },
           ),

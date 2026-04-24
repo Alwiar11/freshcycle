@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freshcycle/core/theme/app_colors.dart';
 
 class InventoryFilterChips extends StatelessWidget {
   final int selectedIndex;
@@ -20,33 +21,51 @@ class InventoryFilterChips extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: filters.length,
-        separatorBuilder: (_, _) => SizedBox(width: 8.w),
+        separatorBuilder: (_, __) => SizedBox(width: 8.w),
         itemBuilder: (_, index) {
           final bool isActive = selectedIndex == index;
-          return InkWell(
-            onTap: () => onSelected(index),
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              decoration: BoxDecoration(
-                color: isActive
-                    ? Theme.of(context).colorScheme.primary
-                    : Theme.of(context).colorScheme.surfaceContainer,
+
+          return Container(
+            decoration: BoxDecoration(
+              gradient: isActive
+                  ? LinearGradient(
+                      colors: [
+                        Theme.of(context).colorScheme.primary,
+                        AppColors.secondary,
+                      ],
+                    )
+                  : null,
+              color: isActive
+                  ? null
+                  : Theme.of(context).colorScheme.surfaceContainer,
+              borderRadius: BorderRadius.circular(20.r),
+              border: isActive
+                  ? null
+                  : Border.all(
+                      color: Theme.of(context).colorScheme.outline,
+                      width: 0.5,
+                    ),
+            ),
+            child: Material(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(20.r),
+              child: InkWell(
+                onTap: () => onSelected(index),
                 borderRadius: BorderRadius.circular(20.r),
-                border: Border.all(
-                  color: isActive
-                      ? Theme.of(context).colorScheme.primary
-                      : Theme.of(context).colorScheme.outline,
-                  width: 0.5,
-                ),
-              ),
-              child: Center(
-                child: Text(
-                  filters[index],
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
-                    color: isActive
-                        ? Colors.white
-                        : Theme.of(context).colorScheme.onSurfaceVariant,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Center(
+                    child: Text(
+                      filters[index],
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontWeight: isActive
+                            ? FontWeight.w600
+                            : FontWeight.w400,
+                        color: isActive
+                            ? Colors.white
+                            : Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
+                    ),
                   ),
                 ),
               ),

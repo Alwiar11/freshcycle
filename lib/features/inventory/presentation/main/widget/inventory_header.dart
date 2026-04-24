@@ -25,7 +25,12 @@ class InventoryHeader extends StatelessWidget {
           width: 32.w,
           height: 32.h,
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            gradient: LinearGradient(
+              colors: [
+                Theme.of(context).colorScheme.primary,
+                Theme.of(context).colorScheme.secondary,
+              ],
+            ),
             borderRadius: BorderRadius.circular(8.r),
           ),
           child: Icon(Icons.eco_rounded, color: Colors.white, size: 18.r),

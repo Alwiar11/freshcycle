@@ -46,8 +46,9 @@ class _LoginFormState extends State<LoginForm> {
             keyboardType: TextInputType.emailAddress,
             prefixIcon: const Icon(Icons.email_outlined),
             validator: (value) {
-              if (value == null || value.isEmpty)
+              if (value == null || value.isEmpty) {
                 return 'Email tidak boleh kosong';
+              }
               if (!value.contains('@')) return 'Format email tidak valid';
               return null;
             },
@@ -69,8 +70,9 @@ class _LoginFormState extends State<LoginForm> {
                   setState(() => _obscurePassword = !_obscurePassword),
             ),
             validator: (value) {
-              if (value == null || value.isEmpty)
+              if (value == null || value.isEmpty) {
                 return 'Password tidak boleh kosong';
+              }
               if (value.length < 8) return 'Password minimal 8 karakter';
               return null;
             },
